@@ -1,13 +1,8 @@
 class Menu:
-    def exibir(self):
-        """
-        Exibe o menu principal.
-        """
-        print("=== JOGO DE REFLEXO ===")
-        print("1 - Jogar")
-        print("0 - Sair")
+    def exibir(self, window):
+        self.window = window
 
-    def iniciar_jogo(self):
+    def iniciar(self):
         """
         Inicia uma nova partida.
         """

@@ -1,10 +1,14 @@
-from code.player import Player
-from code.entity_factory import EntityFactory
-
+import pygame
+from code.Player import Player
+from code.Entity_factory import EntityFactory
+from code.Menu import Menu
 
 class Jogo:
 
     def __init__(self):
+
+        pygame.init()
+        self.window = pygame.display.set_mode(size=(600, 480))
 
         self.player = Player()
 
@@ -29,6 +33,15 @@ class Jogo:
         self.inimigos.clear()
 
         self.rodando = True
+
+        while True:
+            menu = Menu(self.window)
+            menu.iniciar()
+            pass
+           # for event in pygame.event.get():
+            #    if event.type == pygame.QUIT:
+             #       pygame.quit() #Close Window
+              #      quit() #endpygame
 
         print("Partida iniciada")
 

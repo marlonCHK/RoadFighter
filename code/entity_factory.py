@@ -1,6 +1,6 @@
 import random
 
-from code.inimigo import Inimigo
+from code.Inimigo import Inimigo
 
 
 class EntityFactory:
