@@ -1,5 +1,5 @@
 from code.Jogo import Jogo
 
 
-game = Jogo()
-Jogo.Iniciar()
+jogo = Jogo()
+jogo.iniciar()

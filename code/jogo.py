@@ -6,42 +6,28 @@ from code.Menu import Menu
 class Jogo:
 
     def __init__(self):
-
         pygame.init()
-        self.window = pygame.display.set_mode(size=(600, 480))
-
-        self.player = Player()
-
-        self.inimigos = []
-
-        self.score = 0
-
-        self.velocidade = 1.0
-
-        self.tempo_sobrevivencia = 0
-
-        self.rodando = False
+        self.window = pygame.display.set_mode(size=(576, 324))
+        
+        #self.player = Player()
+        #self.inimigos = []
+        #self.score = 0
+        #self.velocidade = 1.0
+        #self.tempo_sobrevivencia = 0
+        #self.rodando = False
 
     def iniciar(self):
-
-        self.score = 0
-
-        self.velocidade = 1.0
-
-        self.tempo_sobrevivencia = 0
-
-        self.inimigos.clear()
-
-        self.rodando = True
+        #self.score = 0
+        #self.velocidade = 1.0
+        #self.tempo_sobrevivencia = 0
+        #self.inimigos.clear()
+        #self.rodando = True
 
         while True:
             menu = Menu(self.window)
             menu.iniciar()
             pass
-           # for event in pygame.event.get():
-            #    if event.type == pygame.QUIT:
-             #       pygame.quit() #Close Window
-              #      quit() #endpygame
+           
 
         print("Partida iniciada")
 
