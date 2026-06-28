@@ -1,7 +1,11 @@
+import pygame
+
 class Player:
     def __init__(self):
-        self.posicao_x = 0
-        self.posicao_y = 0
+        spritesheet = pygame.image.load('./assets/Idle.png').convert_alpha()
+
+        self.image = spritesheet.subsurface((0,0,128,128))
+        self.rect = self.image.get_rect(center=(288, 210))
 
     def atacar_esq(self):
         """

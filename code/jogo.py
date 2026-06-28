@@ -2,6 +2,7 @@ import pygame
 from code.Player import Player
 from code.Entity_factory import EntityFactory
 from code.Menu import Menu
+from code.Level import Level
 
 class Jogo:
 
@@ -25,11 +26,17 @@ class Jogo:
 
         while True:
             menu = Menu(self.window)
-            menu.iniciar()
-            pass
+            menu_return = menu.iniciar()
+
+            if menu_return == 0:
+                level = Level(self.window, 'Level1')
+                level.iniciar()
+            else:
+                pygame.quit()
+                quit()
+            
            
 
-        print("Partida iniciada")
 
     def atualizar(self):
 
