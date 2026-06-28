@@ -9,8 +9,13 @@ class Level:
         self.name = name
 
         self.background = pygame.image.load("./assets/level1bg.png").convert()
+        self.background_rect = self.background.get_rect()
 
         self.player = Player()
+        self.enemy_list = []
+        self.enemy_list.append(
+            EntityFactory.criar_inimigo(3)
+        )
 
     def iniciar(self):
         pygame.mixer.music.load('./assets/at_the_end_of_hope_intro.wav')
@@ -28,5 +33,9 @@ class Level:
             
             self.window.blit(self.background, (0, 0))
             self.window.blit(self.player.image, self.player.rect)
+
+            for enemy in self.enemy_list:
+                enemy.atualizar()
+                self.window.blit(enemy.image, enemy.rect)
 
             pygame.display.flip()

@@ -1,20 +1,50 @@
+import pygame
+
 class Inimigo:
-    def __init__(self, posicao_x, direcao, velocidade):
-        self.posicao_x = posicao_x
+    def __init__(self, direcao, velocidade):
+        spritesheet = pygame.image.load('./assets/Run.png').convert_alpha()
+
+        self.frames = []
+
+        for i in range(10):
+            frame = spritesheet.subsurface((i * 128, 0, 128, 128))
+
+            if direcao == "direita":
+                frame = pygame.transform.flip(frame, True, False)
+
+            self.frames.append(frame)
+        
+        self.frame_atual = 0
+        self.image = self.frames[0]
+        self.rect = self.image.get_rect()
         self.direcao = direcao
         self.velocidade = velocidade
 
-    def mover(self):
-        """
-        Move o inimigo em direção ao jogador.
-        """
-        if self.direcao == "esquerda":
-            self.posicao_x += self.velocidade
+        if direcao == "esquerda":
+            self.rect.midleft =  (-60, 210)
         else:
-            self.posicao_x -= self.velocidade
+            self.rect.midright = (636, 210)
 
-    def atingir_player(self, posicao_player):
-        """
-        Verifica se atingiu o jogador.
-        """
-        return abs(self.posicao_x - posicao_player) <= 5
+
+    def mover(self):
+
+        if self.direcao == "esquerda":
+            self.rect.x += self.velocidade
+        else:
+            self.rect.x -= self.velocidade
+    
+    def animar(self):
+        self.frame_atual += 0.25
+
+        if self.frame_atual >= len(self.frames):
+            self.frame_atual = 0
+        
+        self.image = self.frames[int(self.frame_atual)]
+
+    def atualizar(self):
+        self.mover()
+        self.animar()
+
+    def atingir_player(self, player):
+     
+        return self.rect.colliderect(player.rect)
