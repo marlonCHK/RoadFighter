@@ -24,6 +24,27 @@ class Menu:
                 self.menu_text(40, "Play", (136, 8, 8), ((576/2), 200))
                 self.menu_text(40, "Exit", (73, 76, 78), ((576/2), 240))
             
+            self.menu_text(
+                24,
+                "CONTROLES",
+                (255, 255, 255),
+                (470, 245)
+            )
+
+            self.menu_text(
+                18,
+                "<-- ATK Esquerda",
+                (255, 255, 255),
+                (470, 275)
+            )
+
+            self.menu_text(
+                18,
+                "--> ATK Direita",
+                (255, 255, 255),
+                (470, 300)
+            )
+
             pygame.display.flip()
 
             for event in pygame.event.get():
